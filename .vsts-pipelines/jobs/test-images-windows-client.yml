@@ -34,7 +34,8 @@ jobs:
       ./tests/run-tests.ps1
       -VersionFilter $(dotnetVersion)*
       -OSFilter $(osVersion)
-      -Repo $(acr.server)/$(repo)-$(stagingRepo.suffix)
+      -Registry $(acr.server)
+      -RepoPrefix $(stagingRepoPrefix)
     displayName: Test Images
   - script: docker logout
     displayName: Docker logout
