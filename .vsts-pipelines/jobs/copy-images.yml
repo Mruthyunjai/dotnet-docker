@@ -44,7 +44,7 @@ jobs:
       --os-version $(osVersion)
       --architecture $(architecture)
       --registry-override $(acr.server)
-      --repo-prefix $(acr.publishPrefix)
+      --repo-prefix $(publishRepoPrefix)
       $(imageBuilder.queueArgs)
       $(stagingRepoPrefix)
       $(acr.servicePrincipalName)

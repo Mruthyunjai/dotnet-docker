@@ -55,7 +55,8 @@ jobs:
       -VersionFilter $(dotnetVersion)*
       -OSFilter $(osVersion)*
       -ArchitectureFilter $(architecture)
-      -Repo $(acr.server)/$(repo)-$(stagingRepo.suffix)
+      -Registry $(acr.server)
+      -RepoPrefix $(stagingRepoPrefix)
       $(optionalTestArgs)
     displayName: Test Images
   - script: docker exec $(testRunner.container) docker logout
