@@ -89,7 +89,6 @@ namespace Microsoft.DotNet.Docker.Tests
         private string GetImageName(DotNetImageType imageType)
         {
             string repoSuffix = Config.IsNightlyRepo ? "-nightly" : string.Empty;
-            string repo = $"{Config.RepoPrefix}dotnet/core/dotnet{repoSuffix}/{variantName}"
             string variantName = Enum.GetName(typeof(DotNetImageType), imageType).ToLowerInvariant().Replace('_', '-');
 
             Version imageVersion;
@@ -123,7 +122,7 @@ namespace Microsoft.DotNet.Docker.Tests
                 arch = $"-arm64v8";
             }
 
-            return $"{Config.Registry}/{repo}:{imageVersion.ToString(2)}-{os}{arch}";
+            return $"{Config.Registry}/{Config.RepoPrefix}dotnet/core{repoSuffix}/{variantName}:{imageVersion.ToString(2)}-{os}{arch}";
         }
 
         public override string ToString()
