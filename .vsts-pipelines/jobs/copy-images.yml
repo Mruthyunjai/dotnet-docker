@@ -41,7 +41,7 @@ jobs:
       $(runImageBuilderCmd) copyAcrImages
       --manifest $(manifest)
       $(imageBuilderPaths)
-      --os-version $(osVersion)
+      --os-version '$(osVersion)'
       --architecture $(architecture)
       --registry-override $(acr.server)
       --repo-prefix $(publishRepoPrefix)
