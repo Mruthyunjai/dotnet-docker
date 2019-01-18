@@ -42,13 +42,14 @@ jobs:
       --manifest $(manifest)
       $(imageBuilderPaths)
       --os-version $(osVersion)
-      --registry-override=$(acr.server)
-      --repo-prefix=$(arm.publishPrefix)
-      $(acr.buildPrefix)
+      --architecture $(architecture)
+      --registry-override $(acr.server)
+      --repo-prefix $(acr.publishPrefix)
+      $(imageBuilder.queueArgs)
+      $(stagingRepoPrefix)
       $(acr.servicePrincipalName)
       $(app-dotnetdockerbuild-client-secret)
       $(acr.servicePrincipalTenant)
       $(acr.subscription)
-      $(imageBuilder.queueArgs)
     displayName: Copy Images
   - template: ../steps/cleanup-docker-linux.yml

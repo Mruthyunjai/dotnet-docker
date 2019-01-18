@@ -9,8 +9,8 @@ jobs:
   variables:
     imageBuilder.commonCmdArgs: >
       --manifest $(manifest)
-      --registry-override=$(acr.server)
-      --repo-prefix=$(arm.publishPrefix)
+      --registry-override $(acr.server)
+      --repo-prefix $(acr.publishPrefix)
       --username $(acr.userName)
       --password $(BotAccount-dotnet-docker-acr-bot-password)
       $(imageBuilder.queueArgs)

@@ -29,8 +29,8 @@ jobs:
       --manifest $(manifest)
       $(imageBuilderPaths)
       --os-version $(osVersion)
-      --registry-override=$(acr.server)
-      --repo-prefix=$(acr.buildPrefix)
+      --registry-override $(acr.server)
+      --repo-prefix $(stagingRepoPrefix)
       --retry
       --push
       --username $(acr.userName)
